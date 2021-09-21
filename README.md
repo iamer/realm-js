@@ -140,6 +140,7 @@ npx lerna bootstrap
 Please familiarise yourself with [Lerna](https://github.com/lerna/lerna) to learn how to add dependencies to these packages.
 
 ### Building docs
+
 API documentation is written using [JSDoc](http://usejsdoc.org/).
 
 * `npm run jsdoc`
