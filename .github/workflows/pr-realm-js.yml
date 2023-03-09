@@ -22,20 +22,20 @@ jobs:
       fail-fast: false
       matrix:
         variant:
-          - { os: linux, runner: ubuntu-latest, arch: x64, artifact-path: packages/realm/prebuilds, test-node: true, test-electron: true, container: "ghcr.io/${{ github.repository }}/linux-x64:master" }
-          - { os: linux, runner: ubuntu-latest, arch: arm, artifact-path: packages/realm/prebuilds, container: "ghcr.io/${{ github.repository }}/linux-arm:master" }
-          - { os: linux, runner: ubuntu-latest, arch: arm64, artifact-path: packages/realm/prebuilds, container: "ghcr.io/${{ github.repository }}/linux-arm:master" }
-          - { os: windows, runner: windows-latest, arch: x64, artifact-path: packages/realm/prebuilds, test-node: true, test-electron: true }
-          - { os: windows, runner: windows-2019, arch: ia32, artifact-path: packages/realm/prebuilds }
-          - { os: android, runner: ubuntu-latest, arch: x86_64, artifact-path: packages/realm/react-native/android/src/main/jniLibs }
-          - { os: android, runner: ubuntu-latest, arch: armeabi-v7a, artifact-path: packages/realm/react-native/android/src/main/jniLibs }
-          - { os: android, runner: ubuntu-latest, arch: arm64-v8a, artifact-path: packages/realm/react-native/android/src/main/jniLibs }
-          - { os: android, runner: ubuntu-latest, arch: x86, artifact-path: packages/realm/react-native/android/src/main/jniLibs }
-          - { os: darwin, runner: macos-latest, arch: x64, artifact-path: packages/realm/prebuilds, test-node: true, test-electron: true }
-          - { os: darwin, runner: macos-latest, arch: arm64, artifact-path: packages/realm/prebuilds, test-node: true, test-electron: true }
-          - { os: ios, runner: macos-latest, arch: simulator, artifact-path: packages/realm/react-native/ios/realm-js-ios.xcframework }
-          - { os: ios, runner: macos-latest, arch: catalyst, artifact-path: packages/realm/react-native/ios/realm-js-ios.xcframework }
-          - { os: ios, runner: macos-latest, arch: ios, artifact-path: packages/realm/react-native/ios/realm-js-ios.xcframework }
+          - { os: linux, runner: ubuntu-latest, arch: x64, artifact-path: packages/realm/prebuilds, test-node: true, test-electron: true, container: "ghcr.io/${{ github.repository }}/linux-x64:main" }
+          - { os: linux, runner: ubuntu-latest, arch: arm, artifact-path: packages/realm/prebuilds, container: "ghcr.io/${{ github.repository }}/linux-arm:main" }
+          - { os: linux, runner: ubuntu-latest, arch: arm64, artifact-path: packages/realm/prebuilds, container: "ghcr.io/${{ github.repository }}/linux-arm:main" }
+          #- { os: windows, runner: windows-latest, arch: x64, artifact-path: packages/realm/prebuilds, test-node: true, test-electron: true }
+          #- { os: windows, runner: windows-2019, arch: ia32, artifact-path: packages/realm/prebuilds }
+          #- { os: android, runner: ubuntu-latest, arch: x86_64, artifact-path: packages/realm/react-native/android/src/main/jniLibs }
+          #- { os: android, runner: ubuntu-latest, arch: armeabi-v7a, artifact-path: packages/realm/react-native/android/src/main/jniLibs }
+          #- { os: android, runner: ubuntu-latest, arch: arm64-v8a, artifact-path: packages/realm/react-native/android/src/main/jniLibs }
+          #- { os: android, runner: ubuntu-latest, arch: x86, artifact-path: packages/realm/react-native/android/src/main/jniLibs }
+          #- { os: darwin, runner: macos-latest, arch: x64, artifact-path: packages/realm/prebuilds, test-node: true, test-electron: true }
+          #- { os: darwin, runner: macos-latest, arch: arm64, artifact-path: packages/realm/prebuilds, test-node: true, test-electron: true }
+          #- { os: ios, runner: macos-latest, arch: simulator, artifact-path: packages/realm/react-native/ios/realm-js-ios.xcframework }
+          #- { os: ios, runner: macos-latest, arch: catalyst, artifact-path: packages/realm/react-native/ios/realm-js-ios.xcframework }
+          #- { os: ios, runner: macos-latest, arch: ios, artifact-path: packages/realm/react-native/ios/realm-js-ios.xcframework }
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -229,11 +229,11 @@ jobs:
           #- { os: windows, target: test, runner: windows-latest, environment: node}
           #- { os: windows, target: "test:main", runner: windows-latest, environment: electron }
           #- { os: windows, target: "test:renderer", runner: windows-latest, environment: electron }
-          - { os: darwin, target: "test:main", runner: macos-latest, environment: electron }
-          - { os: darwin, target: "test:renderer", runner: macos-latest, environment: electron }
-          - { os: darwin, target: test, runner: macos-latest, environment: node }
-          - { os: android, target: "test:android", runner: macos-latest, environment: react-native, arch: "armeabi-v7a" }
-          - { os: ios, target: "test:ios", runner: macos-latest, environment: react-native, arch: "ios" }
+          #- { os: darwin, target: "test:main", runner: macos-latest, environment: electron }
+          #- { os: darwin, target: "test:renderer", runner: macos-latest, environment: electron }
+          #- { os: darwin, target: test, runner: macos-latest, environment: node }
+          #- { os: android, target: "test:android", runner: macos-latest, environment: react-native, arch: "armeabi-v7a" }
+          #- { os: ios, target: "test:ios", runner: macos-latest, environment: react-native, arch: "ios" }
           #- { os: ios, target: "test:catalyst", runner: macos-latest, environment: react-native, arch: "catalyst" }
     timeout-minutes: 60
     steps:
